@@ -1,0 +1,38 @@
+<aside class="sidebar shadow-sm">
+  <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+    <input
+      type="search"
+      class="form-control rounded-pill"
+      name="search"
+      placeholder="Search ..."
+    />
+  </div>
+  <nav class="sidebar-menu pt-3 pb-3">
+    <ul class="menu-items">
+      <li>
+        <a
+          [routerLink]="['/merchant/stallregistration']"
+          routerLinkActive="active"
+        >
+          <i class="fa fa-tv"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/merchant/stallregistration']"
+          routerLinkActive="active"
+        >
+          <i class="fa fa-tv"></i>
+          <span>Stall Registration</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/merchant/creatindent']" routerLinkActive="active">
+          <i class="fa fa-tv"></i>
+          <span>Create Indent</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
