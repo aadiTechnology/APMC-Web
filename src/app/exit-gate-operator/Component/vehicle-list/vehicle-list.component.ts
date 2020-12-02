@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ExitGateServiceService } from '../../exit-gate-service.service';
 import { InVehicle } from '../../entities/InVehicle'
+
  
 @Component({
   selector: 'app-vehicle-list',
@@ -13,6 +14,7 @@ export class VehicleListComponent implements OnInit {
   LVehicleList:any;
   message: string;
   modalRef: any;
+  term: string;
 
 
 
@@ -29,10 +31,21 @@ export class VehicleListComponent implements OnInit {
   
 
   getAllStallRegistration(): void {
-    this.exitGateServiceService.GetAllCheckInVehicalDetails().subscribe((result) => {
-      this.LVehicleList = result.rows;
+    this.exitGateServiceService.GetAllCheckInVehicalDetails().subscribe((arg) => {
+      if (arg) {
+        this.LVehicleList = arg.rows;
+      }
     });
   }
+
+  SelectedVehicle(EntryData){
+    this.router.navigate(['/exitGateOperator/exitGate'],{
+      queryParams: {
+        indentId:EntryData
+      },
+    });
+  }
+
 
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, { class: "modal-sm" });
